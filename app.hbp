@@ -6,6 +6,7 @@
 -mt
 
 app\app.prg
+app\web_basic.prg
 
 -Llib
 -luhttpd2

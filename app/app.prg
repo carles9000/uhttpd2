@@ -20,7 +20,7 @@ function WebServer()
 	
 	//	Routing...		
 				
-		oServer:Route( '/'			, {|hSrv| ULoadPage( hSrv, 'main.html' ) 	}) 		
+		oServer:Route( '/'	, 'basic.html' )  		
 			
 	//	-----------------------------------------------------------------------//	
 	
