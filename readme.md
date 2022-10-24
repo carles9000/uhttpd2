@@ -8,4 +8,4 @@ UHttpd2
 
 ![alt text](https://i.postimg.cc/4NWB6QNR/concept.gif)
 
-.
+➜ [**Wiki - Concept**](https://github.com/carles9000/uhttpd2/wiki/Concept)
