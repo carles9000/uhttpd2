@@ -1,0 +1,38 @@
+<div class="TDialog  " id="builder" data-dialog data-api="api_dbfbuilder" data-oninit="inittable" style="position:relative;width:475px;height:400px;"  >
+  
+ <img src="files/images/fivewin.ico" style="position:absolute;top:12px;left:408px;width:32px;height:32px;" ></img>
+  
+ <div  class="TSay" style="position:absolute;top:36px;left:15px;width:90px;height:30px;" >Field Name</div>
+ <div  class="TSay" style="position:absolute;top:36px;left:120px;width:76px;height:30px;" >Type</div>
+ <div  class="TSay" style="position:absolute;top:36px;left:230px;width:76px;height:30px;" >Len</div>
+ <div  class="TSay" style="position:absolute;top:36px;left:280px;width:76px;height:30px;" >Dec</div>
+ 
+ <input class="TGet" type="text" id="builder-field" data-live style="position:absolute;top:60px;left:15px;width:100px;height:24px;" value="" >
+ <input class="TGet tc" type="text" id="builder-len"  data-live style="position:absolute;top:60px;left:230px;width:40px;height:24px;" value="10" >
+ <input class="TGet tc" type="text" id="builder-dec"   data-live style="position:absolute;top:60px;left:280px;width:30px;height:24px;" value="0" >
+
+	<select class="TCombobox" id="builder-type" data-live data-onchange="changetype" style="position:absolute;top:60px;left:120px;width:100px;height:24px;">
+	  <option value="C">Character</option>
+	  <option value="N">Numeric</option>
+	  <option value="L">Logic</option>
+	  <option value="D">Date</option>
+	  <option value="M">Memo</option>
+	</select>     
+	
+ <div  class="TSay" style="position:absolute;top:95px;left:15px;width:90px;height:30px;" >Fields</div>
+
+ 
+ <div class="TGrid" id="builder-structure" data-live data-all style="position:absolute;top:120px;left:15px;width:346px;height:220px;background-color:gray;overflow:auto;"></div> 
+ 
+ <div  class="TSay" style="position:absolute;top:360px;left:15px;width:90px;height:30px;" >Dbf Name</div>
+ <input class="TGet" type="text" id="builder-file"   data-live style="position:absolute;top:357px;left:97px;width:144px;height:24px;" value="" >
+ 
+ 
+ <button class="TButton"  id="builder-add"  style="position:absolute;top:59px;left:380px;width:82px;height:26px;"  data-onclick = "add" >Add</button> 
+ <button class="TButton"  id="builder-del"  style="position:absolute;top:120px;left:380px;width:82px;height:26px;" data-onclick = "del" >Delete</button>
+
+ <button class="TButton"  id="builder-create" style="position:absolute;top:356px;left:250px;width:82px;height:26px;"    data-onclick = "create" >Create</button>
+ <button class="TButton"  id="builder-tables"  style="position:absolute;top:356px;left:380px;width:82px;height:26px;" data-onclick = "tables" >Tables</button>
+ 
+</div>
+<script>$(document).ready(function(){UInitDialog("builder");});	</script>

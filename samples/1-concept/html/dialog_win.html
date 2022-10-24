@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+ <!--<meta charset="utf-8">--> 
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+ <title>hbWeb</title>
+ 
+ 
+	<!-- Httpd2 environment -->
+ 
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	 
+		<script src="files/uhttpd2/uhttpd2.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+ 
+	<!-- ------------------ -->
+
+</head>
+
+<body>
+
+<div class="TDialog  " id="client" data-dialog data-api="web_dialog" style="position:relative;width:334px;height:193px;"  >
+<div  class="TSay" id="client-oS1"  data-live style="position:absolute;top:28px;left:36px;width:76px;height:30px;" >Name</div>
+<input class="TGet" type="text" id="client-oC1"  data-live style="position:absolute;top:26px;left:160px;width:68px;height:24px;" value="08:55:12" >
+<button class="TButton"  type="button" id="client-oC2" style="position:absolute;top:108px;left:60px;width:90px;height:26px;"  data-live  data-onclick="exe_something" >Ok</button>
+<button class="TButton"  type="button" id="client-oC3" style="position:absolute;top:108px;left:192px;width:90px;height:26px;"  data-live  data-onclick="exe_dummy" >Do Error</button>
+</div>
+<script>$(document).ready(function(){UInitDialog("client");});	</script>

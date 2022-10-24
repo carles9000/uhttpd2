@@ -1,0 +1,27 @@
+-n
+-w1
+-es2
+-inc
+-head=full
+-mt
+
+
+app\concept.prg
+app\web_basic.prg
+app\web_dialog.prg
+app\web_browse.prg
+app\web_testcontrol.prg
+app\web_testscreen.prg
+app\web_session.prg
+
+
+-Llib
+-luhttpd2
+
+# WAPI_OutputDebugString()
+hbwin.hbc
+
+
+
+
+     

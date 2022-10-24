@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>hbWeb</title>
+ <link rel="shortcut icon" type="image/png" href="files/favicon.ico"/>
+
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+ <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+ <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+ <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+ <script src="files/hbweb.js"></script>
+ <link href="files/hbweb.css" rel="stylesheet" >
+ <style>
+ 
+	.TBrw {
+		position: absolute;
+		top: 0px;
+		bottom: 50px;
+		right: 0px;
+		left: 0px;
+		overflow: auto;
+	}
+ 
+	.TBrw_Bar {
+		position: fixed;
+		bottom: 0px;
+		height: 50px;		
+		width: 100%;
+		background-color: gray;
+		border-top: 1px solid white;
+		border-right: 1px solid white;
+		right: 0px;
+		left: 0px;
+	}
+	
+	.TBrw_Btn {
+		border: 0px;
+		text-align: center;
+		color: white;
+		background-color: transparent;
+		padding-left: 15px;
+		padding-right: 15px;		
+		height: 100%;
+	}
+ 
+	.TBrw_Btn:hover {
+		background-color:#e9e9ed;
+		color:red;
+		cursor: pointer;
+	}
+	
+	th {
+		border-bottom: 1px solid #d6d6d6;
+	}
+
+	tr:nth-child(even) {
+		background: #e9e9e9;
+	}
+</style>
+
+
+<body>
+
+    <div class="TDialog mybackground" id="brw1" data-dialog data-api="web_browse" data-oninit='top'  >
+
+		<div class="TBrw" id="brw1-panel_brw" >
+
+		</div> 
+
+		<div class="TBrw_Bar">
+						 
+			<button class="TBrw_Btn"  id="brw1-oC1" data-onclick = "top" >Top</button>
+			<button class="TBrw_Btn"  id="brw1-oC2" data-onclick = "prev" >Prev</button>
+			<button class="TBrw_Btn"  id="brw1-oC3"  data-onclick = "next" >Next</button>
+			<button class="TBrw_Btn"  id="brw1-oC4"  data-onclick = "end" >End</button>	  
+			
+		</div>
+  
+    </div>
+
+<script>$(document).ready(function(){UInitDialog("brw1");});	</script>
+
+</body>
+</html>

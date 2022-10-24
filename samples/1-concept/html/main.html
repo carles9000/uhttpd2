@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+ <!--<meta charset="utf-8">--> 
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+ <title>UHttpd2</title>
+ 
+ 
+	<!-- Httpd2 environment -->
+ 
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	 
+		<!-- Grid section...
+
+			<link href="https://unpkg.com/tabulator-tables@5.2.3/dist/css/tabulator.min.css" rel="stylesheet">
+			<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.2.3/dist/js/tabulator.min.js"></script> 
+
+			<script type="text/javascript" src="files/uhttpd2/moment/moment.js"></script> 
+		-->
+	 
+		<script src="files/uhttpd2/uhttpd2.min.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+ 
+	<!-- ------------------ -->
+
+ <style>
+  #panel {	
+	position: fixed;
+	bottom: 0px;
+	top: 115px;
+	right: 0px;
+	left: 0px;
+	overflow-y: auto;
+	overflow-x: auto;
+  }
+ </style>
+ 
+</head>
+
+<body>
+<div class="TWindow " id="main" data-dialog data-api="web_menu"  >
+<div class="TTitle"><img src="files/images/favicon.ico"  ></img><span>Harbour Web</span></div>
+<div class="TMenuBar">
+
+	<div class="TMenuBarBtn">
+	  <button id="oBtnBmp1"  data-live  onclick = "UScreen( 'dialog', '_dialog', '')" >Simple Dialog</button>
+	</div>
+	
+	<div class="TMenuBarBtn">
+	  <button data-live  onclick = "UScreen( 'controls', '_container', 'panel')" >Controls</button>
+	</div>
+	
+	<div class="TMenuBarBtn">
+	  <button data-live  onclick = "UScreen( 'session', '_container', 'panel')" >Session</button>
+	</div>
+	
+	<div class="TMenuBarBtn">
+	  <button data-live  onclick = "UScreen( 'brw1', '_container', 'panel')" >Browse</button>
+	</div>
+	
+	<div class="TMenuBarBtn">
+	  <button data-live  onclick = "UScreen( 'screens', '_container', 'panel')" >Screens</button>
+	</div>	
+	
+	
+	<div class="TMenuBarBtn" style="float:right;">
+	  <button data-live  onclick = "UScreenClean( 'panel' )" >Clean</button>
+	</div>
+</div>
+<div id='panel'></div>
+
+</div>
+<script>$(document).ready(function(){UInitDialog("main");});	</script>

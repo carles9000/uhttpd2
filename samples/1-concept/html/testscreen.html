@@ -1,0 +1,30 @@
+<style>
+
+	#mydlg {
+		padding:10px;
+	}
+
+</style>
+<body>
+
+	<h2 style="text-align: center;">The goal is load screen from different ways</h2><hr> 
+
+	<div id="mydlg" data-dialog data-api="web_testscreen" >
+		
+		<input class="TButton" type="button" id="mydlg-mybtn-11" data-live data-onclick="screen_panel" value="Load Panel" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-10" data-live data-onclick="screen_dialog" value="Load Dialog" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-12" data-live data-onclick="screen_window" value="Load Window" >	
+		
+		<hr>
+	</div>
+
+	<script>		
+		
+		$(document).ready(function(){ 
+			UInitDialog("mydlg");
+		});				
+
+	</script>
+
+</body>
+</html>

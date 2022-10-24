@@ -1,0 +1,110 @@
+
+ <style> 
+ 
+	.TBrw {
+		position: absolute;
+		top: 0px;
+		bottom: 50px;
+		right: 0px;
+		left: 0px;
+		overflow: auto;
+	}
+ 
+	.TBrw_Bar {
+		position: fixed;
+		bottom: 0px;
+		height: 50px;		
+		width: 100%;
+		background-color: gray;
+		border-top: 1px solid white;
+		border-right: 1px solid white;
+		right: 0px;
+		left: 0px;
+	}
+	
+	.TBrw_Btn {
+		border: 0px;
+		text-align: center;
+		color: white;
+		background-color: transparent;
+		padding-left: 15px;
+		padding-right: 15px;		
+		height: 100%;
+	}
+ 
+	.TBrw_Btn:hover {
+		background-color:#e9e9ed;
+		color:red;
+		cursor: pointer;
+	}
+	
+	.TBrw_Info{
+		float:right;
+		margin-right: 20px;
+		margin-top: 12px;
+		color: white;
+	}
+	
+	.TBrw_Pages{
+		float:right;
+		margin-right: 20px;
+		margin-top: 13px;
+		color: white;
+	}
+
+	.TBrw_Pages label { color: white; }
+	
+	.TBrw_BarSeparator { 
+		border-left: 1px solid white;
+		border-right: 1px solid #8c8c8c;	
+		margin-right: 3px;		
+	}
+	
+</style>
+
+
+<body>
+
+    <div class="TDialog-- mybackground--" id="dbu" data-dialog data-api="api_dbfedit" data-oninit="dbu_init"  >
+
+		<div id="dbu-panel_brw"  class="TGrid TBrw" data-live data-all >
+
+		</div> 
+
+		<div class="TBrw_Bar">
+						 
+			<button class="TBrw_Btn"  id="dbu-oC1" data-onclick = "top" >Top</button>
+			<button class="TBrw_Btn"  id="dbu-oC2" data-onclick = "prev" >Prev</button>
+			<button class="TBrw_Btn"  id="dbu-oC3"  data-onclick = "next" >Next</button>
+			<button class="TBrw_Btn"  id="dbu-oC4"  data-onclick = "end" >End</button>
+			
+			<span class="TBrw_BarSeparator" ></span>
+			
+			<button class="TBrw_Btn"  id="dbu-oC5"  data-onclick = "ins" >Insert</button>	  
+			<button class="TBrw_Btn"  id="dbu-oC6"  data-onclick = "del" >Delete</button>	
+			
+			<span class="TBrw_BarSeparator" ></span>
+			<button class="TBrw_Btn"  id="dbu-oC7"  data-onclick = "info" >Info</button>	  
+			<button class="TBrw_Btn"  id="dbu-oC8"  data-onclick = "close" data-pbi="confirm( 'Close DBU ?')">Close</button>	  
+			
+			<div class="TBrw_Info" id="dbu-info">Pag.</div>
+			
+			<div class="TBrw_Pages">
+				<label>Rows&nbsp;</label>
+				<select id="dbu-pages" data-live data-onchange = "refresh" >
+				  <option value="5">5</option>
+				  <option value="10">10</option>
+				  <option value="25">25</option>
+				  <option value="50">50</option>
+				  <option value="100">100</option>
+				</select>
+			</div>
+			
+		</div>
+  
+    </div>
+
+<script>$(document).ready(function(){UInitDialog("dbu");});	</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<style>
+
+	.border_red { border:2px solid red; }		
+	.border_blue { 	border:2px solid blue; }	
+	.border_green { border:2px solid green; }	
+	
+	.border_red:disabled { border: 2px solid #eecaca; }
+	.border_blue:disabled { border: 2px solid #cfcffb; }
+	.border_green:disabled { border: 2px solid #acdaac; }
+	
+	.mynum{
+		text-align: center;
+	}
+	
+	.mynum:focus {
+		border: 2px solid #2196f3;
+		color: #ff5722;
+		background-color: #efefd9;
+		outline: 0;
+		border-radius: 5px;
+		box-shadow: 0px 0px 10px #8c9aed;
+	}
+	
+	#mydlg {
+		padding:10px;
+	}
+	
+	.total {
+		font-weight:bold;
+	}
+
+
+</style>
+<body>
+
+	<h2 style="text-align: center;">The goal is to handle controls of the dom</h2><hr> 
+
+	<div id="mydlg" data-dialog data-api="web_testcontrol" data-oninit="myinit" >
+
+		<label>Cantidad </label><input class="TGet" type="text" data-live data-onchange="calc_total" id="mydlg-cantidad" value="1" ><br>
+		<label>Precio </label><input class="TGet" type="text" data-live data-onchange="calc_total" id="mydlg-precio" value="50" ><br>
+				
+		<label>TOTAL <span class="total" id="mydlg-total">50</span></label>
+
+		
+		<hr>				
+		
+		<label>Numero entre 0 y 100 </label><input type="text" class="mynum" data-live data-onchange="max_100" id="mydlg-mynum" value="1" ><br>
+		
+		<hr>
+	
+		<div id="mydlg-group_saco">
+		
+			<label>Saco 1 </label><input class="TGet" type="text" data-live data-onchange="calc_saco" id="mydlg-saco_1" value="10" ><br>
+			<label>Saco 2 </label><input class="TGet" type="text" data-live data-onchange="calc_saco" id="mydlg-saco_2" value="20" ><br>		
+			<label>Saco 3 </label><input class="TGet" type="text" data-live data-onchange="calc_saco" id="mydlg-saco_3" value="30" ><br>		
+			
+			<label>TOTAL SACO <span class="total" id="mydlg-total_saco">60</span></label>
+		
+			<hr>
+			
+		</div>
+		
+	
+		<div id="mydlg-group_weblang">
+		
+		  <label>Please select your favorite Web language:</label><br>
+		  <input type="radio" id="mydlg-html" name="mydlg-fav_language" value="HTML" data-live data-onchange="web_lang" >
+		  <label for="mydlg-html">HTML</label><br>
+		
+		  <input type="radio" id="mydlg-css" name="mydlg-fav_language" value="CSS" data-live data-onchange="web_lang" >
+		  <label for="mydlg-css">CSS</label><br>
+		
+		  <input type="radio" id="mydlg-javascript" name="mydlg-fav_language" value="JavaScript" data-live data-onchange="web_lang" >
+		  <label for="mydlg-javascript">JavaScript</label>
+		</div>
+		
+		<hr>
+		
+		
+		<label>Are you married ? </label><input type="checkbox" id="mydlg-married" data-live data-onchange="married" checked >
+		<span id="mydlg-married-info">(I'm sorry for you...)</span><br>
+		
+		<hr>
+		
+		<label>Disable All </label><input type="checkbox" id="mydlg-mycheck" data-live data-onchange="disable_enable" ><br>
+		
+		<hr>
+		
+		<label>Language favourite ?</label>
+		<select class="TCombobox" id="mydlg-lang"  data-live  data-onchange = "exe_check_lang" >
+			<option value=""></option>
+			<option value="harbour">Harbour -> Go to page. New tab</option>
+			<option value="php">PHP -> Go to page. Redirect in the same tab</option>
+			<option value="phyton">Phyton -> Go to page. Open new window browse</option>
+			
+		</select>	
+
+		<hr>		
+		
+		<label>Codigo Cliente (1/2/3) ? </label><input class="TGet" type="text" data-live data-onchange="exe_cliente" id="mydlg-cliente" value="1" >
+		<input class="TButton" type="button" id="mydlg-btn_cliente" data-live data-onclick="exe_cliente" value="Busca" >	
+		<input class="TButton" type="button" id="mydlg-btn_cliente_clean" data-live data-onclick="exe_cliente_clean" value="Clean" >	
+		<div id="mydlg-cliente_info"></div>
+		<hr>
+		
+		<label>Control NO LIVE </label><input class="TGet" type="text" id="mydlg-no_live" value="Control no live..." >
+		<hr>		
+		
+		<input class="TButton" type="button" id="mydlg-mybtn-1" data-live data-onclick="exe_js" value="Execute JS" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-2" data-live data-onclick="exe_setclass" value="Set Class" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-3" data-live data-onclick="exe_focus" value="Set Focus Numero" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-4" data-live data-onclick="exe_visibility" value="Set Show/Hide" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-5" data-live data-onclick="exe_alert" value="Alert" >	
+		<input class="TButton" type="button" id="mydlg-mybtn-6" data-live data-onclick="exe_error" value="Do Error" >	
+		
+		<hr>
+	</div>
+	
+	<div id="error"></div>	
+
+	<script>		
+		
+		function MyTestJS( dat ) {
+		
+			//	We execute the "CALL" function from harbour and we can use the parameters 
+			//	received by Harbour !
+		
+			console.clear()
+			console.log( dat )
+		
+			alert( 'Check console' )		
+		}
+		
+		$(document).ready(function(){ 
+			UInitDialog("mydlg");
+		});				
+
+	</script>
+
+</body>
+</html>
