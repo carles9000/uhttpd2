@@ -21,23 +21,21 @@ function WebServer()
 	oServer:SetPort( 81 )
 	oServer:lDebug := .t.
 	
-	//	Routing...
+	//	Routing...		
 
-		oServer:Route( 'files/*'	,{|hSrv| UProcFiles(HB_DIRBASE() + "/files/" + hSrv[ 'path' ], .F.)} ) 
-				
-		oServer:Route( '/'			, {|hSrv| ULoadPage( hSrv, 'splash.html' ) 		}) 
+		oServer:Route( '/'				, 'splash.html' ) 
 		
-		oServer:Route( 'basic'		, {|hSrv| ULoadPage( hSrv, 'basic.html' ) 		}) 
-		oServer:Route( 'basic_dom'	, {|hSrv| ULoadPage( hSrv, 'basic_dom.html' ) 	}) 
+		oServer:Route( 'basic'			, 'basic.html' ) 
+		oServer:Route( 'basic_dom'		, 'basic_dom.html' ) 
 		
-		oServer:Route( 'menu'		, {|hSrv| ULoadPage( hSrv, 'main.html' ) 		}) 
-		oServer:Route( 'dialog'		, {|hSrv| ULoadPage( hSrv, 'dialog.html' ) 		}) 
-		oServer:Route( 'dialog_win'	, {|hSrv| ULoadPage( hSrv, 'dialog_win.html' )	}) 
-		oServer:Route( 'brw1'		, {|hSrv| ULoadPage( hSrv, 'brw1.html' ) 		}) 
-		oServer:Route( 'brw_header'	, {|hSrv| ULoadPage( hSrv, 'brw_header.html' ) 	}) 
-		oServer:Route( 'controls'	, {|hSrv| ULoadPage( hSrv, 'testcontrol.html' ) }) 
-		oServer:Route( 'screens'	, {|hSrv| ULoadPage( hSrv, 'testscreen.html' ) 	}) 
-		oServer:Route( 'session'	, {|hSrv| ULoadPage( hSrv, 'session.html' )		}) 
+		oServer:Route( 'menu'			, 'main.html' ) 
+		oServer:Route( 'dialog'		, 'dialog.html' ) 
+		oServer:Route( 'dialog_win'	, 'dialog_win.html' ) 
+		oServer:Route( 'brw1'			, 'brw1.html' ) 
+		oServer:Route( 'brw_header'	, 'brw_header.html' ) 	 
+		oServer:Route( 'controls'		, 'testcontrol.html' )  
+		oServer:Route( 'screens'		, 'testscreen.html' ) 	 
+		oServer:Route( 'session'		, 'session.html' ) 		 
 					
 	//	-----------------------------------------------------------------------//
 	
