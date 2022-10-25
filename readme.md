@@ -15,4 +15,4 @@ UHttpd2
 >Don't forget to try the samples in the samples folder
 
 
-➜ [**Go to Wiki**](https://github.com/carles9000/uhttpd2/wiki/Concept)
+➜ [**Go to Wiki**](https://github.com/carles9000/uhttpd2/wiki)
