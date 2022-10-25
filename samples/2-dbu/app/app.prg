@@ -33,18 +33,16 @@ function WebServer()
 	oServer:lDebug := .t.
 
 	
-	//	Routing...
-
-		oServer:Route( 'files/*'	, {|hSrv| UProcFiles( HB_DIRBASE() + "/files/" + hSrv[ 'path' ], .F.)} ) 
+	//	Routing...		
 				
-		oServer:Route( '/'			, {|hSrv| ULoadPage( hSrv, 'splash.html' ) 	}) 
+		oServer:Route( '/'			, 'splash.html' ) 
 
-		oServer:Route( 'menu'		, {|hSrv| ULoadPage( hSrv, 'menu.html' ) 		}) 
-		oServer:Route( 'dbfbuild'	, {|hSrv| ULoadPage( hSrv, 'dbfbuild.html' )	}) 
-		oServer:Route( 'dbfselect'	, {|hSrv| ULoadPage( hSrv, 'dbfselect.html' )	}) 
-		oServer:Route( 'dirtables'	, {|hSrv| ULoadPage( hSrv, 'dirtables.html' )	}) 
-		oServer:Route( 'server'	, {|hSrv| ULoadPage( hSrv, 'server.html' )	}) 
-		oServer:Route( 'dbu'		, {|hSrv| ULoadPage( hSrv, 'dbu.html' )		}) 
+		oServer:Route( 'menu'		, 'menu.html' 	) 
+		oServer:Route( 'dbfbuild'	, 'dbfbuild.html'  ) 
+		oServer:Route( 'dbfselect'	, 'dbfselect.html' ) 
+		oServer:Route( 'dirtables'	, 'dirtables.html' ) 
+		oServer:Route( 'server'	, 'server.html' ) 
+		oServer:Route( 'dbu'		, 'dbu.html' 	) 
 		
 			
 	//	-----------------------------------------------------------------------//
