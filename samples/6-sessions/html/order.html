@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<!--<meta charset="utf-8">--> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+	<title>UHttpd2</title>
+
+
+	<!-- Httpd2 environment -->
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	 
+		<script src="files/uhttpd2/uhttpd2.min.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+
+	<!-- ------------------ -->
+</head>
+<body>
+
+	<h2>Order</h2>
+		<a href="menu">Menu</a>
+		<a href="logout">Logout</a>				
+	<hr>
+
+    <div id="order" data-dialog data-api="api_order" data-oninit="clean" >
+
+		<input class="TGet" type="text" id="order-id"   data-live value="" >
+		
+		<input class="TButton" type="button"  id="order-search" data-live data-onclick='search' value="Search" > 		
+		<input class="TButton" type="button"  id="order-clean" data-live data-onclick='clean' value="Clean" > 		
+		
+		<!--<button class="TButton" type="text" id="order-search" data-live data-onclick='search' >Search</button> 		-->
+		
+		<div id="order-info"></div>	
+		
+		<br>
+		<table>
+			<tr><td>First</td><td><input id="order-first" data-live></td></tr>
+			<tr><td>Last</td><td><input id="order-last" data-live></td></tr>
+			<tr><td>Street</td><td><input id="order-street" data-live></td></tr>
+			<tr><td>Age</td><td><input id="order-age" data-live></td></tr>			
+		</table>
+		
+		<br>		
+		
+		<input class="TButton" type="button"  id="order-save" data-live data-onclick='save' value="Save Data" style="width:198px"> 		
+  
+    </div>
+
+	<script>$(document).ready(function(){UInitDialog("order");});	</script>
+
+</body>
+</html>
