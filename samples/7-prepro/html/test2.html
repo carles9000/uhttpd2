@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<h2>Preprocesor example...  &#60;?prg code ?&#62;</h2><hr>
+
+<?prg
+	local a 	:= time()
+	local cHtml := '<ul>'
+	local n  
+	
+	for n := 1 to 5
+		cHtml += '<li>Item ' + ltrim(str(n)) + ' => ' + a + '</li>'
+	next
+	
+	cHtml += '</ul>'
+	
+	retu cHtml 
+?> 
+
+<hr>

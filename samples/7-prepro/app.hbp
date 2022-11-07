@@ -1,0 +1,23 @@
+-n
+-w1
+-es2
+-inc
+-head=full
+-mt
+
+
+app\app.prg
+
+
+
+-Llib
+-luhttpd2
+
+
+# WAPI_OutputDebugString()
+hbwin.hbc
+
+
+
+
+     
