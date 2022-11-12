@@ -1,0 +1,19 @@
+-n
+-w1
+-es2
+-inc
+-head=full
+-mt
+
+app\app.prg
+app\web_order.prg
+
+
+
+-Llib
+-luhttpd2
+-ltweb\tweb
+
+
+# WAPI_OutputDebugString()
+hbwin.hbc
