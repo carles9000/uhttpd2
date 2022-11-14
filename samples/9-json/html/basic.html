@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Basic</title>
+ <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+
+	<!-- Httpd2 environment -->
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+		
+		<script src="files/uhttpd2/uhttpd2.min.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+
+	<!-- ------------------ -->
+
+</head>
+<body>
+
+	<h3>Entendiendo como recibir en json</h3><hr>
+
+	<div class="TDialog " id="basic" data-dialog  data-api="web_basic">
+	  <label>Register</label>
+	  <input id="basic-register" data-live value="ABC-123" >
+	  
+	  <!-- Conexion via api de uhttpd2 ! -->
+		<button  type="button" id="basic-btn_test" data-live  data-onclick="exe_test" >Test via API</button>
+	  
+	  <!-- Conexion via js -->
+		<button  type="button" onclick="MyTest()"  >Test via JS - (Received text)</button>
+		<button  type="button" onclick="MyTest2()" >Test via JS - (Received json)</button>
+		
+	  <hr>
+	  <div id="basic-info"></div>
+	</div>
+
+	<script>
+	
+		function MyConsole( dat ){
+			console.log( dat )
+			alert( 'See console...' )
+		}
+	
+		//	Send parameters to myfunc (see router)
+	
+		function MyTest() {
+					
+			var oPar = new Object()
+				oPar[ 'basic-register' ] = $( '#basic-register').val()
+				oPar[ 'test' ] = 'text'
+			
+			$.post( 'myfunc', oPar, function(dat) { 				
+				console.log( jQuery.parseJSON( dat ) )
+				alert( 'See console...\nWe receive in text format and transform it to json' )
+			})
+		}
+		
+		function MyTest2() {
+					
+			var oPar = new Object()
+				oPar[ 'basic-register' ] = $( '#basic-register').val()
+				oPar[ 'test' ] = 'json'
+			
+			$.post( 'myfunc', oPar, function( dat ) { 				
+				console.log( dat )
+				alert( 'See console...\nWe receive in json format' )
+			})
+		}		
+		
+	
+		$(document).ready( function(){ 
+			UInitDialog("basic");
+		});
+	</script>
+
+</head>
+</html>
