@@ -1,12 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-
- <!--<meta charset="utf-8">--> 
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Basic</title>
  <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
- <title>UHttpd2</title>
+
+	<!-- Httpd2 environment -->
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+		
+		<script src="files/uhttpd2/uhttpd2.min.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+
+	<!-- ------------------ -->
 
 </head>
 
@@ -14,9 +24,26 @@
 
 	<h2>Preprocesor examples</h2><hr>
 	
-	<br><a href="test1">Test 1 - &#123;&#123; Tags &#125;&#125;</a>	
-	<br><a href="test2">Test 2 - &#60;?prg code ?&#62;</a>
-	<br><a href="test3">Test 3</a>
+	<div id="basic" data-dialog  data-api="web_basic">
+	
+		<br><a href="test1">Test 1 - &#123;&#123; Tags &#125;&#125;</a>	
+		<br><a href="test2">Test 2 - &#60;?prg code ?&#62;</a>
+		<br><a href="test3">Test 3 - &#60;?prg code ?&#62; public var example</a>
+		<br><a href="test4">Test 4 - add parameteres GET to url : ?a=123&b=admin</a>
+		
+		<br><a href="loadhtml">Test ULoadHtml()</a>				
+		
+		<hr>
+		<div id="basic-info"></div>		
+		
+	</div>
+	
+	<script>	
+		$(document).ready( function(){ 
+			UInitDialog("basic");
+		});
+	</script>	
+		
 	
 </body>
 

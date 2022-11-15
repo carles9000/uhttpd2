@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<h2>Test. Check app\web_basic and see ULoadHtml()</h2><hr>
+
+
+
+Time {{ time() }}
+<br>
+Path {{ UGetServer():cPathHtml }}
+<br>
+{{ str(pcount() ) }}
+<br>
+{{ '<b>Name: </b>' + pvalue(1)[ 'name' ] + ', <b>age: </b>' + str( pvalue(1)[ 'age' ]) }}
+<br>
+{{ HB_VALTOSTR(pvalue(2) )}}
+<br>
+{{ HB_VALTOSTR(pvalue(3) )}}
+<br>
+<?prg
+	local c := '<ul>'
+	local n
+	
+	// 	Force error
+	//	for n = 1 t 10
+	
+	for n = 1 to 10
+		c+= '<li>Item ' + str(n) + '</li>'
+	next 
+	
+	c+= '</ul>'
+
+	retu c
+?>
+<br>
+Y esto es el fin
+<hr>

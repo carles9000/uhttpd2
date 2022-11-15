@@ -11,7 +11,7 @@ function main()
 
 retu nil 
 		
-function InitServer()	
+function InitServer()			
 	
 	SET DATE TO ITALIAN
 	SET DATE FORMAT TO 'DD/MM/YYYY'
@@ -33,6 +33,9 @@ function WebServer()
 		oServer:Route( 'test1'	, 'test1.html') 		
 		oServer:Route( 'test2'	, 'test2.html') 		
 		oServer:Route( 'test3'	, 'test3.html') 		
+		oServer:Route( 'test4'	, 'test4.html') 				
+		
+		oServer:Route( 'loadhtml', 'testloadhtml') 				
 			
 	//	-----------------------------------------------------------------------//	
 	
