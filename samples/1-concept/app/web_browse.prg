@@ -81,7 +81,9 @@ static function DoNext( oTDom )
 	local cAlias := OpenDbf()
 	local aRows , aHeader, nPos, cHtml, nRecno, cInfo
 	local nRows := Val( oTDom:Get( 'pages' ) )
-
+	local z := oTDom:get( 'xxx' )
+	
+	_d( z )
 
 	USessionStart(  'TABLE' )		
 	
@@ -90,7 +92,8 @@ static function DoNext( oTDom )
 	aHeader	:= GetHeader()
 	aRows  	:= GetRows( cAlias, nPos, nRows ) 	
 	cInfo 	:= InfoPag( nPos, cAlias, nRows )				
-	
+
+
 	if len (aRows ) == 0
 		DoEnd( oTDom )
 		retu nil
