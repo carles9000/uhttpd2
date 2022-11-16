@@ -33,6 +33,7 @@ function Web_TestControl( oDom )
 		case oDom:GetProc() == 'exe_alert'			; oDom:SetAlert( 'Error at ' + time() )		
 		case oDom:GetProc() == 'exe_error'			; Test_Error( oDom )		
 		case oDom:GetProc() == 'web_lang'			; Test_Web_Lang( oDom )
+		case oDom:GetProc() == 'set_lang'			; Test_Set_Lang( oDom )
 				
 		otherwise 				
 				oDom:SetError( 'No existe Proc: ' + oDom:GetProc() )
@@ -236,5 +237,13 @@ function Test_Web_Lang( oDom )
 
 retu nil 
 
+//	------------------------------------------------------------------ //
+
+function Test_Set_Lang( oDom ) 	
+
+	oDom:Set( 'fav_language', 'J' )	//	Javascript
+	oDom:SetAlert( 'Select Javascript language' )
+
+retu nil 
 
 //	------------------------------------------------------------------ //
