@@ -34,6 +34,8 @@ function Web_TestControl( oDom )
 		case oDom:GetProc() == 'exe_error'			; Test_Error( oDom )		
 		case oDom:GetProc() == 'web_lang'			; Test_Web_Lang( oDom )
 		case oDom:GetProc() == 'set_lang'			; Test_Set_Lang( oDom )
+		case oDom:GetProc() == 'set_combo'			; Test_Set_Combo( oDom ) 
+		case oDom:GetProc() == 'reset_combo'		; Test_Reset_Combo( oDom ) 
 				
 		otherwise 				
 				oDom:SetError( 'No existe Proc: ' + oDom:GetProc() )
@@ -108,6 +110,8 @@ static function Test_Check_Lang( oDom )
 		case cLang == 'phyton' 	; oDom:SetUrl( 'https://www.python.org/', 'MyWindow', "width=800,height=400" )
 
 		otherwise
+		
+			oDom:SetAlert( "I don't know " + cLang )
 			//	Nothing to do...
 	endcase
 
@@ -243,6 +247,30 @@ function Test_Set_Lang( oDom )
 
 	oDom:Set( 'fav_language', 'J' )	//	Javascript
 	oDom:SetAlert( 'Select Javascript language' )
+
+retu nil 
+
+//	------------------------------------------------------------------ //
+
+function Test_Set_Combo( oDom ) 	
+
+	oDom:Set( 'lang', 'harbour' )
+	oDom:SetAlert( 'Select Language favourite' )
+
+retu nil 
+
+//	------------------------------------------------------------------ //
+
+function Test_Reset_Combo( oDom ) 
+
+	local hData := {=>}
+	
+	hData[ 'C' ] := 'Language C' 
+	hData[ 'C++' ] := 'Language C' 
+	hData[ 'Fortan' ] := 'Language Fortran' 
+
+	oDom:Set( 'lang', hData )
+	oDom:SetAlert( 'Reset Language favourite' )
 
 retu nil 
 
