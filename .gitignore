@@ -1,0 +1,6 @@
+# Ignore files with extension .exe
+*.log
+
+#Ignore tots els dirs .hbmk, .sessions
+**/.hbmk/
+**/.sessions/
