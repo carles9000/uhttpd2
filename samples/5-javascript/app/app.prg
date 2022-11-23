@@ -31,7 +31,6 @@ function WebServer()
 	//	Routing...		
 				
 		oServer:Route( '/'		, 'table.html') 		
-		oServer:Route( 'hello'	, 'MyHello'  ) 
 			
 	//	-----------------------------------------------------------------------//	
 	

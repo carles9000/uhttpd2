@@ -1,0 +1,21 @@
+-n
+-w1
+-es2
+-inc
+-head=full
+-mt
+
+app\app.prg
+app\test.prg
+app\testerror.prg
+app\testajax.prg
+app\web_ajax.prg
+
+
+-Llib
+-luhttpd2
+
+
+# WAPI_OutputDebugString()
+hbwin.hbc
+xhb.hbc
