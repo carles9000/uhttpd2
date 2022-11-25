@@ -13,8 +13,13 @@
 <?prg	
 	public n	:= 0
 	
+	_d( 'pass1', n )
 		A()
+	_d( 'pass2', n )
 		B()
+	_d( 'pass3', n )
+		
+		
 		
 		cHtml := 'n = ' + ltrim(str(n))				
 	
@@ -31,14 +36,15 @@
 
 <br>
 
-{{ valtype(pvalue(1))  }}	
+Valtype:{{ valtype(pvalue(1))  }}	
 <br>	
 {{ _w(pvalue(1))  }}		
 {{ pvalue(1)[ 'margin-top' ]  }}	
 <br>	
 {{ pvalue(2) }}	
 <br>
-{{ valtype(pvalue(1)[ 'fake' ] )  }}	
+<!-- {*{ pvalue(1)[ 'fake' ]  }*} -->
+	
 
 
 

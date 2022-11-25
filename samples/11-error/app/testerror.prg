@@ -12,7 +12,7 @@ function TestError2()
 
     LOCAL cHtml 
 	LOCAL cFile 	:= 'tpl\testerror.tpl'
-	LOCAL hCfg   	:= { 'margin-top' => '50%' , 'background-color' => 'blue' }
+	LOCAL hCfg   	:= { 'margin-top' => '50%' , 'background-color' => 'blue', 'age' => 69 }
 	LOCAL cKey 		:= 'ABC-123'
 	
 	
