@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+ <!--<meta charset="utf-8">--> 
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+ <title>UHttpd2</title>
+ 
+ 
+	<!-- Httpd2 environment -->
+ 
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	 
+
+		<script src="files/uhttpd2/uhttpd2.min.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+ 
+	<!-- ------------------ -->
+
+</head>
+
+<body>
+
+	<h2>Test Upload files - Via Javascript</h2><hr>
+	
+	<div class="TDialog ">
+	
+	  <label>ID</label>
+	  <input id="basic-id" value="" >	
+	  <br>	  
+	  
+	  <label>Name</label>
+	  <input id="basic-name"  value="" >
+	  <br>	  
+	  
+	  <label>Ficheros a Importar</label>
+	  <input type="file" multiple id="basic-file" name="file" />
+
+	  <input type="button"  id="basic-upload" class="button" value="Upload via Javascript">
+	  
+	  <hr>
+	
+	</div>
+
+	<script>	
+
+		function Post_Upload( data ) {
+			alert( 'Upload done!. Check console...' )
+			console.log( 'JAVASCRIPT POST_UPLOAD', data )
+		}		
+		
+		$("#basic-upload").click(function() {	
+
+			var oPar = new Object()
+				oPar[ 'name' ] = 'John Kocinsky'
+				oPar[ 'age'  ] = 47		
+			
+			UFileUpload( 'basic-file', 'upl', Post_Upload , oPar )									
+		})		
+
+	</script>	
+
+</body>
+
