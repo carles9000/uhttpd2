@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>		
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+	<title>UHttpd2</title> 
+	
+	<!-- Httpd2 environment -->
+ 
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	 
+
+		<script src="files/uhttpd2/uhttpd2.min.js"></script>
+		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+ 
+	<!-- ------------------ -->	
+
+</head>
+
+<style>
+	body { padding:10px; }
+	input[type=button] { width:100px; }
+	#basic-filename {
+		border: 1px solid black;
+		width: 190px;
+		display: block;
+		margin-top: 10px;
+		text-align: center;
+		padding: 5px;	
+	}
+</style>
+
+<body>	
+
+	<h2>Test Images</h2><hr>
+	
+	<div class="TDialog" id="basic" data-dialog  data-api="web_images">	
+  
+	  <img id="basic-photo" src="data/images/cara1.png" style="width:200px;border:1px solid black">
+	  <br>
+	  <input type="hidden"  id="basic-id"  data-live value="1">
+	  <input type="button"  id="basic-prev" data-onclick="prev" value="<< Previous">
+	  <input type="button"  id="basic-next" data-onclick="next" value="Next >>">
+	  <br>
+	  <span id="basic-filename" data-live >cara1.png</span>
+
+	</div>
+
+	<script>			
+	
+		$(document).ready( function(){ 
+			UInitDialog("basic");
+		});
+		
+	</script>	
+<body>
