@@ -24,8 +24,8 @@ function WebServer()
 	
 	//	Optional parameteres
 	
-	oServer:nfiles_size_garbage_inspector 	:= 10000000									//	Default 200000000 Kb.
-	oServer:nFile_max_size 					:= 100000									//	Default 10000000 Kb.
+	oServer:nfiles_size_garbage_inspector 	:= 100000									//	Default 2000000 Kb.
+	oServer:nFile_max_size 					:= 10000									//	Default 100000 Kb.
 	oServer:aFilesAllowed 					:= { 'jpg', 'jpeg', 'pdf', 'png', 'txt' } 	// 	Default all
 	
 	
@@ -33,7 +33,7 @@ function WebServer()
 				
 		oServer:Route( '/'			, 'index.html') 
 		oServer:Route( 'upl_api'	, 'via_api.html' ) 
-		oServer:Route( 'upl_js'	, 'via_js.html' ) 
+		oServer:Route( 'upl_js'		, 'via_js.html' ) 
 		oServer:Route( 'upl'		, 'myupload') 
 		
 
