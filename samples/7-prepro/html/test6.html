@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<h2>Preprocesor example...  &#60;?prg code ?&#62; USE </h2><hr>
+
+<?prg	
+	
+	USE ( 'data\test.dbf' ) SHARED NEW 
+	
+	retu '<b>First:</b> ' + FIELD->first + '<br><b>Last:</b> ' + FIELD->last
+?> 
+
+<hr>

@@ -13,6 +13,7 @@ app\web_basic.prg
 
 -Llib
 -luhttpd2
+-lhbct
 
 
 # WAPI_OutputDebugString()
