@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Basic</title>
+   <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+
+   <!-- dependencias o librerias externas ( simil de enlace en ejecutables ) -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.form.io/formiojs/formio.full.min.css">
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
+
+   <!-- dependencias o librerias de servidor -->
+   <script src="files/uhttpd2/uhttpd2.min.js"></script>
+   <link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >
+</head>
+<body>
+
+<!-- 	<div class="TDialog" id="basic" data-dialog  data-api="web_basic">
+      <label>Register</label>
+      <input id="basic-register" data-live value="" >
+      <button  type="button" id="basic-btn_search" data-live  data-onclick="exe_search" >Accept</button>
+      <button  type="button" id="basic-btn_clean" data-live  data-onclick="exe_clean" >Clean</button>
+      <hr>
+      <div id="basic-info"></div>
+   </div> -->
+
+   <div class="container">
+
+      <!-- Enlace al modo de edicion -->
+      <div class="text-right">
+         <a href="info">Info</a> |
+         <a href="workshop">Editar formulario</a>
+      </div>
+
+      <!-- Aqui se va a renderizar el formulario -->
+      <div id="basic" data-dialog data-api="web_basic"></div>
+
+      <!-- Aqui va a ir el resultado de la consulta -->
+      <div id="basic-info"></div>
+
+   </div>
+
+   <script type="module">
+      // Importar lib
+      import { k_Formio } from "./files/uhttpd2/contrib/konector.min.js"
+
+      // k_Formio( p1, p2, p3 ) 
+      // 1 : id      = Elemento DOM donde visualizar el plugin 
+      // 2 : api     = Funcion de servidor, devuelve formulario json
+
+      k_Formio( "basic", "getForm" );
+
+	</script>
+
+</head>
+</html>

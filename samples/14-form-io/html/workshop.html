@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <!-- zona de metadatos, titulo e icono de la pagina -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Workshop builder</title>
+	<link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+
+   <!-- dependencias o librerias externas ( simil de enlace en ejecutables ) -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.form.io/formiojs/formio.full.min.css">
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
+</head>
+<body>
+
+   <div class="container">
+      <div id="form"></div>
+   </div>
+
+	<script type="module">
+   
+   // Importar lib
+   import { k_Formio } from "./files/uhttpd2/contrib/konector.min.js"
+
+   // Opciones para k_Formio
+   const config = {
+      design : true,
+      onsave : "setForm"
+   }
+
+   // k_Formio( p1, p2, p3 ) 
+   // 1 : id      = Elemento DOM donde renderizar el plugin 
+   // 2 : api     = Funcion de servidor, devuelve datos a mostrar
+   // 3 : config  = Configuracion de las opciones del plugin
+
+   k_Formio( "form", "getForm", config );
+
+	</script>
+
+</body>
+</html>
