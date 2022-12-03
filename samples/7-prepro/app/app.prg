@@ -41,6 +41,8 @@ function WebServer()
 		
 		oServer:Route( 'test6'	, 'test6.html') 				
 		oServer:Route( 'test7'	, 'test7.html') 				
+		
+		oServer:Route( 'test8'	, 'myprocess') 				
 			
 	//	-----------------------------------------------------------------------//	
 	

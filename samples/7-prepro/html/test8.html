@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<h2>Preprocesor example...  CONTROLLER & VIEW </h2><hr>
+
+<?prg	
+	#include 'lib/uhttpd2.ch'
+
+	local cHtml		:= ''
+	local cTemplate	:= ''
+	local cBlock	:= ''	
+	local nAge		:= pvalue(1)		//	Recover parameters from controller
+	local aRows		:= pvalue(2)		//	Recover parameters from controller
+	local nLen		:= len( aRows )
+	local n 
+
+	TEXT TO cHtml
+		<h3>Select Age:{$ AGE $} 
+		<br>Total: {$ LEN $} 		
+		<br><button onClick="window.location.reload();">Refresh Page</button>
+		</h3><hr>
+		<table border="1px;">
+			<thead>
+				<tr>
+					<th>First</th>
+					<th>Last</th>
+					<th>Street</th>
+				</tr>
+			<thead>				
+			<tbody>				
+	ENDTEXT 
+	
+	cHtml := StrTran( cHtml, '{$ AGE $}', str(nAge) )		
+	cHtml := StrTran( cHtml, '{$ LEN $}', str(nLen) )		
+	
+	
+	TEXT TO cTemplate 
+		<tr>
+			<td>{$ FIRST $}</td>
+			<td>{$ LAST $}</td>
+			<td>{$ STREET $}</td>
+		</tr>	
+	ENDTEXT
+	
+	for n := 1 to nLen
+		
+		cBlock := cTemplate		
+		cBlock := StrTran( cBlock, '{$ FIRST $}', aRows[n][ 'first' ] )		
+		cBlock := StrTran( cBlock, '{$ LAST $}', aRows[n][ 'last' ] )
+		cBlock := StrTran( cBlock, '{$ STREET $}', aRows[n][ 'street' ] )
+		
+		cHtml  += cBlock			
+		
+	next 
+	
+	cHtml += '</tbody>'
+	cHtml += '</table>'		
+	
+	retu cHtml
+?> 
+
+<hr>
