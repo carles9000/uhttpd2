@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<h2>Preprocesor example...  &#60;?prg code ?&#62; TEMPLATE </h2><hr>
+
+<?prg	
+	#include 'lib/uhttpd2.ch'
+
+	local cHtml		:= ''
+	local cTemplate	:= ''
+	local cBlock	:= ''
+	
+	USE ( 'data\test.dbf' ) SHARED NEW 
+	
+	TEXT TO cHtml
+		<table border="1px;">
+			<thead>
+				<tr>
+					<th>First</th>
+					<th>Last</th>
+				</tr>
+			<thead>				
+			<tbody>				
+	ENDTEXT 
+	
+	TEXT TO cTemplate 
+		<tr>
+			<td>{$ FIRST $}</td>
+			<td>{$ LAST $}</td>
+		</tr>	
+	ENDTEXT
+	
+	for n := 1 to 10 
+		
+		cBlock := cTemplate		
+		cBlock := StrTran( cBlock, '{$ FIRST $}', FIELD->first )		
+		cBlock := StrTran( cBlock, '{$ LAST $}', FIELD->last )
+		
+		cHtml  += cBlock		
+	
+		DbSkip()	
+	next 
+	
+	cHtml += '</tbody>'
+	cHtml += '</table>'
+	
+	
+	retu cHtml
+?> 
+
+<hr>

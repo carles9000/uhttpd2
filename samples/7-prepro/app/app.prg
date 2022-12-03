@@ -1,6 +1,6 @@
 #define VK_ESCAPE	27
 
-REQUEST DBUSEAREA
+REQUEST DBUSEAREA, DBSKIP
 REQUEST DBFCDX
 
 
@@ -36,8 +36,11 @@ function WebServer()
 		oServer:Route( 'test2'	, 'test2.html') 		
 		oServer:Route( 'test3'	, 'test3.html') 		
 		oServer:Route( 'test4'	, 'test4.html') 						
+		
 		oServer:Route( 'test5'	, 'testloadhtml') 				
+		
 		oServer:Route( 'test6'	, 'test6.html') 				
+		oServer:Route( 'test7'	, 'test7.html') 				
 			
 	//	-----------------------------------------------------------------------//	
 	
