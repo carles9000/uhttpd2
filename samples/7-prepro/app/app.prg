@@ -5,7 +5,7 @@ REQUEST DBFCDX
 
 
 function main()
-//USE ( 'data\test.dbf') SHARED NEW 
+
 	InitServer() 	
 	
 	while inkey(0) != VK_ESCAPE
