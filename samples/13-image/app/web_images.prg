@@ -2,7 +2,7 @@ function web_images( oDom )
 
 	do case
 		case oDom:GetProc() == 'prev' 	; DoPrev( oDom )						
-		case oDom:GetProc() == 'next' 	; DoNext( oDom )						
+		case oDom:GetProc() == 'next' 	; DoNext( oDom )								
 		
 		otherwise 				
 			oDom:SetError( "Proc don't defined => " + oDom:GetProc() )
