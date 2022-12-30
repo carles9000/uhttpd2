@@ -1,0 +1,12 @@
+<div class="TDialog " id="ds" data-dialog data-api="api_dbfedit" data-oninit="tablesdir" style="position:relative;width:320px;height:225px;"  >
+
+ <div  class="TBar">
+ 	<div class="TBarBtn">
+	  <button id="ds-btn" data-onclick= "tableselect" >Select</button>
+	</div>
+ </div> 
+ 
+ <div class="tabulator" id="ds-tables" data-live style="position:absolute;top:40px;left:0px;right:0px;bottom:0px;background-color:gray;overflow:auto;"></div> 
+
+</div>
+<script>$(document).ready(function(){ UInitDialog("ds"); });</script>

@@ -1,0 +1,27 @@
+-n
+-w1
+-es2
+-inc
+-head=full
+-mt
+
+
+app\app.prg
+app\api_dbfbuilder.prg
+app\api_dbfedit.prg
+app\api_server.prg
+
+
+-Llib
+-luhttpd2
+
+
+# WAPI_OutputDebugString()
+hbwin.hbc
+
+hbct.hbc
+
+
+
+
+     
