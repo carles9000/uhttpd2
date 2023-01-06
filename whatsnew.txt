@@ -1,0 +1,3 @@
+Vrs. 0.90g
+==========
+Bug dbcloseareas. Solved
