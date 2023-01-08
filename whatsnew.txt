@@ -1,3 +1,7 @@
+Vrs. 0.91
+=========
+Ready index list. Now you can execute *.prg and *.html onfly. Very usefully for testing
+
 Vrs. 0.90g
 ==========
 Bug dbcloseareas. Solved
