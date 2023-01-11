@@ -32,7 +32,8 @@ function WebServer()
 				
 		oServer:Route( '/'			, 'splash.html') 
 		oServer:Route( 'notes'		, 'notes.html' ) 
-		oServer:Route( 'list'		, 'list.html'  ) 
+		//oServer:Route( 'list'		, 'list.html'  ) 
+		oServer:Route( 'list'		, 'dolist'  ) 
 			
 	//	-----------------------------------------------------------------------//	
 	

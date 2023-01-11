@@ -19,6 +19,7 @@ static function DoNotes( oDom )
 	local cKey  	:= oDom:Get( 'key' )
 	local lTerms	:= oDom:Get( 'terms' )
 	
+_d( oDom:GetAll() )
 	if empty( cName )
 		oDom:SetAlert( 'Write alias please...')
 		oDom:Focus( 'name' )

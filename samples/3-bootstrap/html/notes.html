@@ -1,85 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
-  
-	<!-- Title App & logo -->	
-    <title>Notes</title>
-	<link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+<?prg
+#include "lib/tweb/tweb.ch" 
+
+	local o, oWeb, oNote
+
+	DEFINE WEB oWeb TITLE 'List' 
 	
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		NAV oNav ID 'nav' TITLE '&nbsp;Notes' LOGO "files/images/mini-mercury.png" ;
+			ROUTE '/' WIDTH 30 HEIGHT 30 OF oWeb
 
-	<!-- Bootstrap files... -->
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
-		
-		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-	
-	<!-- Httpd2 environment -->
+			MENUITEM 'Home' 	ICON '<i class="fa fa-home" aria-hidden="true"></i>' ROUTE '/'		OF oNav
+			MENUITEM 'List' 	ICON '<i class="fa fa-list" aria-hidden="true"></i>' ROUTE 'list' 	OF oNav
 			
-		<!-- Only this files because, jquery was loaded with bootstrap... -->
 
-		<script src="files/uhttpd2/uhttpd2.min.js"></script>
-		<link href="files/uhttpd2/uhttpd2.css" rel="stylesheet" >		
-
-	<!-- ------------------ -->		
-
-  </head>
- <body>
-  
-	<nav class="navbar navbar-dark bg-dark ">
-	  <a class="navbar-brand" href="#">
-		<img src="files/images/mini-mercury.png" width="30" height="30" alt="logo">
-		Notes
-	  </a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbar-list">
-		<ul class="navbar-nav">
-		  <li class="nav-item active">
-			<a class="nav-link" href="/">Home</a>
-			<a class="nav-link" href="list">List</a>
-		  </li>
-
-		</ul>
-	  </div>
-	</nav>
-
-	<div class="container p-3" id="note" data-dialog data-api="api_notes" >
-
-	  <div class="form-group">
-		<label for="name">Alias</label>
-		<input class="form-control" id="note-name" data-live placeholder="Enter your alias...">
-	  </div>
-	  
-	  <div class="form-group">
-		<label for="exampleFormControlTextarea1">Note</label>
-		<textarea class="form-control" data-live id="note-text" rows="3"></textarea>
-	  </div>
-	  
-	  
-	  <div class="form-group">
-		<label for="key">Id. key</label>
-		<input type="password" class="form-control" id="note-key" data-live placeholder="Key is... MAGIC">
-	  </div>
+		DEFINE FORM o ID 'note' API 'api_notes' OF oWeb
+			o:lDessign 	:= .f.
+			o:lFluid 	:= .f.
+			//o:cClass 	:= 'p-0'
+			
+		INIT FORM o  CLASS 'p-5'
 		
-	  <div class="custom-control custom-checkbox form-group">
-		  <input type="checkbox" class="custom-control-input" id="note-terms" data-live>
-		  <label class="custom-control-label" for="note-terms">Accept Terms & Conditions.</label>
-	  </div>
-	  
-	  <div class="text-center">
-		<button id="note-btn" class="btn btn-info" data-onclick="exe_note" >Send Note</button>
-	  </div>
+			ROWGROUP o 			
+				GET ID 'name' PROMPT 'Alias' VALUE '' GRID 12 PLACEHOLDER 'Enter your alias...' OF o				
+			ENDROW o	
 
-	</div>
+			ROWGROUP o 			
+				GET MEMO ID 'text' LABEL 'Note' VALUE '' ROWS 3 GRID 12  OF o				
+			ENDROW o
+			
+			ROWGROUP o 			
+				GET ID 'key' TYPE 'password' PROMPT 'Id. key' VALUE '' GRID 12 PLACEHOLDER 'Key is... MAGIC' OF o				
+			ENDROW o	
+
+			ROWGROUP o 			
+				CHECKBOX ID 'terms' LABEL 'Accept Terms & Conditions' GRID 12 OF o				
+			ENDROW o	
+
+			ROWGROUP o HALIGN 'center'
+				BUTTON ID 'btn' LABEL ' Send Note' GRID 6 ACTION 'exe_note' ;					
+					ICON '<i class="fas fa-clipboard-check"></i>' CLASS 'btn-primary btnticket' OF o
+				
+			ENDCOL o				
+		
+		ENDFORM o
 	
-	<script>$(document).ready(function(){UInitDialog("note");});</script>	
-
-  </body>
-</html>
+	INIT WEB oWeb RETURN
+?>
