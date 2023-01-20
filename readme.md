@@ -10,6 +10,12 @@ UHttpd2
 
 ---------
 
+>IMPORTANTE: La ultima versión de la librería estará siempre en la carpeta \dist
+
+>IMPORTANT: The latest version of the library will always be in the \dist folder
+
+
+
 >No olvide de probar los ejemplos de la carpeta samples
 
 >Don't forget to try the samples in the samples folder
@@ -22,3 +28,6 @@ UHttpd2
 >Recuerda cada vez que actualices las librerias recargar la pagina con ctrl+f5 la primera vez
 
 >Remember every time you update the libraries reload the page with ctrl+f5 the first time
+
+
+
