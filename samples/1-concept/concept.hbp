@@ -20,6 +20,7 @@ app\web_session.prg
 
 # WAPI_OutputDebugString()
 hbwin.hbc
+xhb.hbc
 
 
 

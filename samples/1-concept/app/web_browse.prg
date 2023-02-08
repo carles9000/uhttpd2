@@ -48,7 +48,7 @@ static function DoPrev( oTDom )
 	local nRows := Val( oTDom:Get( 'pages' ) )
 
 
-	USessionStart(  'TABLE' )
+	USessionStart()
 	
 	
 	nPos := if( USession( 'recno_top' ) == nil, 1, USession( 'recno_top' ) )
@@ -81,11 +81,9 @@ static function DoNext( oTDom )
 	local cAlias := OpenDbf()
 	local aRows , aHeader, nPos, cHtml, nRecno, cInfo
 	local nRows := Val( oTDom:Get( 'pages' ) )
-	local z := oTDom:get( 'xxx' )
-	
-	_d( z )
 
-	USessionStart(  'TABLE' )		
+
+	USessionStart()		
 	
 	nPos := if( USession( 'recno_bottom' ) == nil, 1, USession( 'recno_bottom' ) )
 	
@@ -121,7 +119,7 @@ static function DoEnd( oTDom )
 	local nTotalPag
 	local nRows := Val( oTDom:Get( 'pages' ) )
 
-	USessionStart(  'TABLE' )		
+	USessionStart()		
 	(cAlias)->( dbgobottom() )
 	
 	nTotalPag := Int( (cAlias)->( RecCount() ) / nRows ) + 1 

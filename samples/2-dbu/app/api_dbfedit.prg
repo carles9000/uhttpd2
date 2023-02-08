@@ -109,10 +109,10 @@ function TableSelect( oDom )
 	endif 
 
 	
-	USessionStart( "DBU" )	
+	USessionStart()	
 	USession( "dbu_table", cFile )	
 
-	oDom:DialogClose()
+	oDom:DialogClose( 'ds')
 
 	oDom:SetScreen( 'dbu', '_container', 'panel' )
 
@@ -132,7 +132,7 @@ static function Dbu_Init( oDom )
 	local cFile, cPathFile, cAlias, aStr, nRecno, cInfo, hPerformance	
 
 	
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )		
 		oDom:SetScreen( 'dbfselect', '_dialog' )
 		retu nil	
@@ -209,7 +209,7 @@ static function Dbu_Top( oDom )
 	local aRows , aHeader, nPos, cHtml, nREcno, cInfo, cFile
 	local nRows := Val( oDom:Get( 'pages' ) )		
 
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )		
 		oDom:SetScreen( 'dbfselect', '_dialog' )
 		retu nil	
@@ -239,7 +239,7 @@ static function Dbu_Prev( oDom )
 	local aRows , aHeader, nPos, cHtml, nRecno, cInfo,  cFile
 	local nRows := Val( oDom:Get( 'pages' ) )
 
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )		
 		oDom:SetScreen( 'dbfselect', '_dialog' )
 		retu nil	
@@ -273,7 +273,7 @@ static function Dbu_Next( oDom, oServer )
 	local aRows , aHeader, nPos, cHtml, nRecno, cInfo, cFile
 	local nRows := Val( oDom:Get( 'pages' ) )
 		
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )		
 		oDom:SetScreen( 'dbfselect', '_dialog' )
 		retu nil	
@@ -312,7 +312,7 @@ static function Dbu_End( oDom )
 	local nTotalPag
 	local nRows := Val( oDom:Get( 'pages' ) )
 
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )		
 		oDom:SetScreen( 'dbfselect', '_dialog' )
 		retu nil	
@@ -410,7 +410,7 @@ static function Dbu_Update( oDom )
 	
 	//	Init parameters...
 	
-		if ! USessionStart(  'DBU' )		
+		if ! USessionReady()			
 			oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )		
 			oDom:SetScreen( 'dbfselect', '_dialog' )		
 			retu nil	
@@ -471,7 +471,7 @@ static function Dbu_Insert( oDom )
 
 	local cAlias, cInfo, cFile 
 	
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )	
 		oDom:SetData( { 'updated' => .f. , 'msg' => 'Session KO. Que fem ?' } )		
 		retu nil	
@@ -501,7 +501,7 @@ static function Dbu_Delete( oDom )
 		retu nil
 	endif
 	
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )	
 		oDom:SetData( { 'updated' => .f. , 'msg' => 'Session KO. Que fem ?' } )		
 		retu nil	
@@ -552,7 +552,7 @@ static function Dbu_Info( oDom, oServer )
 	local cHtml	:= ''
 	local cAlias, cFile, nDel, aDir
 	
-	if ! USessionStart(  'DBU' )		
+	if ! USessionReady()			
 		oDom:SetConfirm( 'Session Out - Reopen DBF table ?' )	
 		oDom:SetAlert( 'Session Out - Redirect a Select DBF ?' )		
 		retu nil	
@@ -596,7 +596,7 @@ retu nil
 
 static function Dbu_Close( oDom )
 
-	if ! USessionStart(  'DBU' )
+	if ! USessionReady()	
 		oDom:SetScreen( 'dbfselect', '_dialog' )
 		retu nil	
 	endif

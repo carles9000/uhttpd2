@@ -59,10 +59,10 @@ function ShowInfo( hInfo )
 	? '---------------------------------'
 	? 'Start......: ' + hInfo[ 'start' ]
 	? 'Port.......: ' + ltrim(str(hInfo[ 'port' ]))
-	? 'OS.........: ' + UHtmlEncode(OS())
-	? 'Harbour....: ' + UHtmlEncode(VERSION())
-	? 'Build date.: ' + UHtmlEncode(HB_BUILDDATE())
-	? 'Compiler...: ' + UHtmlEncode(HB_COMPILER())
+	? 'OS.........: ' + OS()
+	? 'Harbour....: ' + VERSION()
+	? 'Build date.: ' + HB_BUILDDATE()
+	? 'Compiler...: ' + HB_COMPILER()
 	? 'SSL........: ' + if( hInfo[ 'ssl' ], 'Yes', 'No' )
 	? 'Trace......: ' + if( hInfo[ 'debug' ], 'Yes', 'No' )
 	? '---------------------------------'

@@ -23,13 +23,12 @@ static function Login( oDom, oServer )
 	
 	if lower( cUser ) == 'demo' .and. cPsw == '1234'
 	
-		USessionStart( 'SO' )
+		USessionStart()
 		USession( 'user', cUser )
 		USession( 'name', 'Mr. ' + cUser )
 		USession( 'psw', cPsw )
-		USession( 'in', time() )
-		
-		
+		USession( 'in', time() )		
+
 		oDom:SetUrl( 'menu' )
 		
 	else 
@@ -42,13 +41,13 @@ retu nil
 
 function logout()
 
-	if ! USessionReady( 'SO' )				
+	if ! USessionReady()				
 		URedirect( 'login' )
 		retu nil	
 	endif
 	
 	USessionEnd()
-	
+
 	URedirect( '/' )
 	
 retu nil 

@@ -4,7 +4,7 @@ function web_menu()
 	
 	//	Security. System access
 	
-		if ! USessionReady( 'SO' )				
+		if ! USessionReady()				
 			URedirect( 'login' )
 			retu nil	
 		endif

@@ -27,7 +27,7 @@ static function T1( oDom )
 
 	local a := { 'James', 789, .t., date(), { 'name' => 'Mary', 'id' => 777, 'married' => .t., 'date' => date()-1 } }
 
-	USessionStart( 'TEST'  )
+	USessionStart()
 	
 	USession( 'time', time() )
 	USession( 'date', date() )
@@ -44,7 +44,7 @@ retu nil
 
 static function T2( oDom )		
 
-	if ! USessionStart( 'TEST'  )
+	if ! USessionReady()
 		oDom:Set( 'say', 'NO Session!' )
 		retu nil	
 	endif
@@ -66,7 +66,7 @@ retu nil
 
 static function T3( oDom )	
 
-	if ! USessionStart( 'TEST'  )
+	if ! USessionReady()
 		oDom:Set( 'say', 'NO Session!' )
 		retu nil	
 	endif	
@@ -81,7 +81,7 @@ retu nil
 
 static function T5( oDom )		
 
-	local lOk :=	USessionStart( 'DBU' )
+	local lOk :=	USessionStart()
 	
 	_d( 'T5', lOk )
 	

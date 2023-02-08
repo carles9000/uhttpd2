@@ -1,6 +1,8 @@
 function api_order( oDom )
 
-	if ! USessionReady( 'SO' )								
+
+	if ! USessionReady()	
+		URedirect( 'login' )	
 		retu nil	
 	endif
 
