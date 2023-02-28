@@ -1,3 +1,7 @@
+Vrs. 1.00
+=========
+SSL ready !. See samples\20-SSL
+
 Vrs. 0.99g
 ==========x
 Minor changes. USetToken, UGetToken.
