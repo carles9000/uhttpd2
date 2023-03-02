@@ -1,1 +1,0 @@
-copy \uhttpd2 folder to \files folder of your project -> \files\uhttpd2
