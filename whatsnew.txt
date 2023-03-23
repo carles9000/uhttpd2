@@ -1,3 +1,7 @@
+Vrs. 1.02
+=========
+New tag [data-pbs] Process Before Send. Check example 19-pbs
+
 Vrs. 1.01
 =========
 revised sessions module

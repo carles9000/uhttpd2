@@ -21,10 +21,12 @@
 </head>
 <body>
 
+<h3>PBS (Process Before Send)</h3><hr>
+
 <div class="TDialog " id="basic" data-dialog  data-api="web_basic">
   <label>Register</label>
   <input id="basic-register" data-live value="" >
-  <button  type="button" id="basic-btn_search" data-live  data-onclick="exe_search"  >Accept</button>
+  <button  type="button" id="basic-btn_search" data-live  data-onclick="exe_search" data-pbs="mypbs">Accept</button>
   <button  type="button" id="basic-btn_clean" data-live  data-onclick="exe_clean" >Clean</button>
   <hr>
   <div id="basic-info"></div>
@@ -34,6 +36,11 @@
  $(document).ready( function(){ 
 	UInitDialog("basic");
  });
+ 
+ function mypbs() {
+	return confirm( 'Example pbs (Process Before Send). Continue ?' )	
+ }
+ 
 </script>
 
 </head>
