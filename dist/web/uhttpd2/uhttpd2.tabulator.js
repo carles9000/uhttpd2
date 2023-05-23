@@ -1,17 +1,19 @@
 /*
 **	module.....: uhttpd2tabulator.js -- Tabulator for uhttpd2 (Harbour)
-**	version....: 0.98
-**  last update: 24/12/2022
+**	version....: 1.02
+**  last update: 27/04/2023
 **
-**	(c) 2022 by Carles Aubia
+**	(c) 2022-2023 by Carles Aubia
 **
 */
+
+
 
 class UTabulator {
 
 	id = null 
 	table = null
-	cargo = null 
+	cargo = null 			
 	
 	constructor( id ) {  // Constructor
 		this.id = id;
@@ -20,15 +22,37 @@ class UTabulator {
 	
 
 	Init( options, events, filter, cargo ) {		
-		
+
+	
 		UTabulatorValidOptions( options )
+	
+
+		//	IMPORTANTE. Miramos si existe ya un tabulator en el selector que queremos
+		//	volver ainicializar. En caso de que exista, lo matamos
+
+			var z = Tabulator.findTable('#' + this.id)[0];
+			
+			if (z) 			
+			  z.destroy()
+			  
+		//	-----------------------------------------------
+		
 		
 		this.cargo = cargo 
 		
-		var table = new Tabulator( '#' + this.id, options ) 
-		
+		var table = new Tabulator( '#' + this.id, options ) 						
 		
 		//	Define Events...
+		
+			table.on("tableBuilding", function(){
+				//console.log( 'tableBuilding...' )
+			});		
+		
+			table.on("tableBuilt", function(){
+				//console.log( 'tableBuilt!!!' )
+				//lReady = true 
+				//console.log( 'tableBuilt2!!!', lReady )
+			});
 		
 			if ( events ) {											
 
@@ -108,13 +132,40 @@ class UTabulator {
 		if ( $.type( this.table ) == 'undefined' ) {
 			console.error( "Table don't exist: " + this.id )
 			return null 
-		}		
-	
+		}
+
+		/*
+		while ( !lReady ) {
+			console.log( 'wait lready')
+		}
+		*/
+		
+/*		
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+console.log("Hello");
+sleep(2000);
+console.log("World!");
+*/		
+		
 		switch ( cCmd ) {
 				
 			case 'setData':
 			
-				this.table.setData( value.data );
+				this.table.setData( value.data )
+					.then(function(){
+						//run code after table has been successfully updated
+					})
+					.catch(function(error){
+						//handle error loading data						
+					});	
+				
 				this.table.clearCellEdited();												
 			
 				break;	
@@ -127,27 +178,41 @@ class UTabulator {
 				this.table.updateData( value.data );				
 				break;		
 
-			case 'updateRow':				
+			case 'updateRow':		
+	
 				this.table.updateRow( value.index, value.row );				
 				break;					
 
-			case 'clean':				
-				this.table.setData();
-				this.table.clearCellEdited();															
+			case 'clean':	
+
+				this.table.clearData();
+				break;
+				
+			case 'title':	
+
+				var cId = this.id + '_title'
+				$('#' + cId ).html( value )
+				
 				break;
 
 			case 'getData': 		
-				
+			
 				var nIndex
 				var o 		= this.table.getRows()	
 				var oRows 	= {}				
-				
+		
 				o.forEach(function (cell) { 
 
-					nIndex = cell.getIndex()					
+					nIndex = cell.getIndex()			
 					
-					oRows[ nIndex ] = cell.getData()										
+					if ( typeof nIndex != 'undefined') {			
+						oRows[ nIndex ] = cell.getData()										
+					} else {
+						console.error( 'TWeb: Index error table' )
+					}
 				});				
+				
+				
 
 				return oRows
 				break;	
@@ -211,6 +276,11 @@ class UTabulator {
 			case 'print':				
 				this.table.print( value.par1, value.par2);														
 				break;
+				
+			case 'download':				
+				this.table.download( value.format, value.file );														
+				break;
+							
 			
 			case 'restoreOldValue':
 			
@@ -219,6 +289,11 @@ class UTabulator {
 				//	cell.getValue();
 				
 				break;
+				
+			case 'destroy': 
+			
+				this.table.destroy();																
+				break;					
 		}									
 	}
 	
@@ -309,42 +384,46 @@ function UTabulatorValidOptions( o ) {
 
 	var oCols = o.columns;	
 	
-	
 	for (let i = 0; i < oCols.length; i++) {
 	
-		//	Checking formatter options...
+		if ( typeof oCols[i] == 'object'  ) { 
 		
-			if ( 'formatter' in oCols[i]) {
+			//	Checking formatter options...
+			
+			
+				if ( 'formatter' in oCols[i]) {
 
-				if ( typeof oCols[i].formatter == 'string' ) {	
-		
-					var fn =  window[ oCols[i].formatter ]
-					
-					if (typeof fn === "function") {
-						oCols[i].formatter = fn
-					}												
-				}		
-			}
+					if ( typeof oCols[i].formatter == 'string' ) {	
 			
-		
-		
-		//	Checking validator options...
-			if ( 'validator' in oCols[i]) {						
-			
-				var aValidator = []
+						var fn =  window[ oCols[i].formatter ]
+						
+						if (typeof fn === "function") {
+							oCols[i].formatter = fn
+						}												
+					}		
+				}
 				
 			
-				if ( oCols[i].validator != null ) {										
 			
-						var fn =  window[ oCols[i].validator.type ]
-							
-						if (typeof fn === "function") {
+			//	Checking validator options...
+				if ( 'validator' in oCols[i]) {						
+				
+					var aValidator = []
+					
+				
+					if ( oCols[i].validator != null ) {										
+				
+							var fn =  window[ oCols[i].validator.type ]
+								
+							if (typeof fn === "function") {
 
-							oCols[i].validator.type = fn
-							
-						}																
-				}				
-			}						
+								oCols[i].validator.type = fn
+								
+							}																
+					}				
+				}	
+
+		}
 	}		
 }
 
