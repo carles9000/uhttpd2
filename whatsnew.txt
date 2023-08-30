@@ -1,3 +1,13 @@
+Vrs. 1.06
+=========
+- Server method :SetErrorStatus(), now you can config error pages depending on the status. Check \samples\21-routeerror 
+
+
+Vrs. 1.05
+=========
+- Review Sessions system.
+- Add <udefault> parameter -> Get( <cKey>, <uDefault> )
+
 Vrs. 1.04
 =========
 - Review error system 

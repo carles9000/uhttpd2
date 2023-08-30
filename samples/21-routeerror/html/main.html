@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Basic</title>
+ <link rel="shortcut icon" type="image/png" href="files/uhttpd2/images/favicon.ico"/>
+
+	<!-- Httpd2 environment -->
+
+		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>	
+
+	<!-- ------------------ -->
+
+</head>
+<body>
+
+<h1>Test Error Status</h1><hr>
+
+<div>
+	<button  type="button" onclick="test()" >Go Test Page</button>
+	<button  type="button" onclick="test_ajax_error()" >Go Test Page Error (Via Ajax)</button>
+	<button  type="button" onclick="test_page_error()" >Go Test Page Error</button>
+</div>
+<hr>
+<div id="basic-info"></div>
+
+<script>
+ 
+ function test() {
+	$('#basic-info').html( '' )
+	window.open("test"); 
+ }
+ 
+ function test_ajax_error() {
+ 
+	$('#basic-info').html( '' )
+
+	$.post("url_not_exist")
+		.fail(function(xhr, status, error) {
+		
+			var cLog = '<b>Error</b> => ' + xhr.status 
+			
+			if ( xhr.responseText.length > 0 )
+				cLog += ', ' + xhr.responseText					
+			
+			$('#basic-info').html( cLog )			
+		});
+ }
+ 
+ function test_page_error() {
+	$('#basic-info').html( '' )
+	window.open( 'zzz' ); 
+ }
+ 
+
+</script>
+
+</head>
+</html>
