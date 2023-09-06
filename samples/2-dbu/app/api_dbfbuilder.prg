@@ -108,7 +108,7 @@ static function Add( oDom )
 						'dec' => ltrim(str(hInfo[ 'dec' ])) ;
 					})
 		
-		oDom:TableData( 'structure', aRows )		
+		oDom:TableAddData( 'structure', aRows )		
 	
 retu nil 
 
@@ -120,7 +120,7 @@ static function Del( oDom )
 	local hRow	:= hStr[ 'selected' ]
 		
 	if len( hRow) == 1	
-		oDom:SetTable( 'structure', 'deleteRow', { 'ids' => hRow[1][ 'id' ] }, 'Delete row?' )				
+		oDom:SetTable( 'structure', 'deleteRow', { 'ids' => hRow[1][ 'id' ] } )				
 	endif		
 	
 retu nil 
